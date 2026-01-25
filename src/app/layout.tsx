@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata = {
-  title: "TurboGecko | SEO & Web Development Agency",
+  title: "UnlinkedSEO | SEO & Web Development Agency",
 };
 
 export default function RootLayout({
