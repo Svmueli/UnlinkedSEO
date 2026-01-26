@@ -22,15 +22,16 @@ type PageProps = {
 };
 
 export default async function BlogPostPage({ params }: PageProps) {
-  const { slug } = params;
+  const { slug } = await params;
 
   if (!slug) return notFound();
 
   const post = await getPostBySlug(slug);
   if (!post) return notFound();
 
-  const featuredImage =
-    post._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
+  const featuredImage = post.acf?.hero_image || null;
+
+  const content = post.acf?.article_content || post.content.rendered;
 
   return (
     <section className="bg-light py-5">
@@ -51,14 +52,14 @@ export default async function BlogPostPage({ params }: PageProps) {
               <img
                 src={featuredImage}
                 alt={post.title.rendered}
-                className="img-fluid rounded mb-4"
+                className="img-fluid rounded-3 mb-4"
               />
             )}
 
             <article
               className="bg-white p-4 shadow-sm rounded blog-content"
               dangerouslySetInnerHTML={{
-                __html: post.content.rendered,
+                __html: content,
               }}
             />
           </div>

@@ -19,17 +19,24 @@ export async function getPosts() {
 export async function getPostBySlug(slug: string) {
   if (!slug) return null;
 
-  const res = await fetch(
-    `${WP_API}/posts?slug=${slug}&_embed`,
-    {
-      next: { revalidate: 60 },
-    }
-  );
+  const res = await fetch(`${WP_API}/posts?slug=${slug}`, {
+    next: { revalidate: 60 },
+  });
 
   if (!res.ok) {
     throw new Error("Failed to fetch post");
   }
 
   const posts = await res.json();
-  return posts[0] ?? null;
+  const post = posts[0] ?? null;
+  
+  if (post && post.acf?.hero_image) {
+    const mediaRes = await fetch(`${WP_API}/media/${post.acf.hero_image}`);
+    if (mediaRes.ok) {
+      const media = await mediaRes.json();
+      post.acf.hero_image = media.source_url;
+    }
+  }
+  
+  return post;
 }
