@@ -1,18 +1,26 @@
 import { notFound } from "next/navigation";
 import { getPostBySlug } from "@/wp-cms/lib/wordpress";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600; // Revalidate every hour
+export const dynamicParams = true; // Allow new posts without rebuild
 
 export async function generateStaticParams() {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_WP_API}/posts`
-  );
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_WP_API}/posts`, {
+      next: { revalidate: 3600 }
+    });
 
-  const posts = await res.json();
+    if (!res.ok) return [];
+    
+    const posts = await res.json();
 
-  return posts.map((post: any) => ({
-    slug: post.slug,
-  }));
+    return posts.map((post: any) => ({
+      slug: post.slug,
+    }));
+  } catch (error) {
+    console.error("Failed to fetch posts:", error);
+    return [];
+  }
 }
 
 type PageProps = {
@@ -30,7 +38,6 @@ export default async function BlogPostPage({ params }: PageProps) {
   if (!post) return notFound();
 
   const featuredImage = post.acf?.hero_image || null;
-
   const content = post.acf?.article_content || post.content.rendered;
 
   return (
