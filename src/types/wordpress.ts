@@ -21,6 +21,9 @@ export interface Post {
     author_name?: string;
     author_role?: string;
     category?: string;
+    reading_time?: string;
+    excerpt?: string;
+    author_avatar?: string;
   };
 }
 

@@ -9,13 +9,15 @@ export function decodeHTML(text: string): string {
         quot: '"',
         ldquo: '"',
         rdquo: '"',
-        lsquo: "\u2018",
-        rsquo: "\u2019",
+        lsquo: "'",
+        rsquo: "'",
+        "#8220": '"',
+        "#8221": '"',
       };
       return map[entity.slice(1, -1)] || entity;
     });
 }
 
 export function stripHTML(html: string): string {
-  return html.replace(/<[^>]*>/g, "");
+  return decodeHTML(html.replace(/<[^>]*>/g, ""));
 }
