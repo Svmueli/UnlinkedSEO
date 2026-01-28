@@ -1,5 +1,5 @@
 import { Post } from "@/types/wordpress";
-import { stripHTML } from "@/utils/htmlDecode";
+import { decodeHTML, stripHTML } from "@/utils/htmlDecode";
 import { generateTOC, addIdsToHeadings } from "@/utils/tableOfContents";
 import TableOfContents from "./TableOfContents";
 
@@ -12,6 +12,7 @@ export default function PostContent({ post }: PostContentProps) {
   const readingTime = post.acf?.reading_time || null;
   
   let content = post.acf?.article_content || post.content.rendered;
+  content = decodeHTML(content);
   const tocItems = generateTOC(content);
   content = addIdsToHeadings(content);
 
