@@ -23,7 +23,7 @@ const articles = [
 ];
 
 export default function GetAQuotePage() {
-  const brandGreen = "#1DB954";
+  const brandGreen = "#6DBE45";
 
   return (
     <main className="bg-white" style={{ fontFamily: 'Inter, system-ui, sans-serif', color: '#0B1F14' }}>

@@ -3,244 +3,227 @@
 import Link from "next/link";
 
 export default function Navbar() {
-  const brandColor = "#6DBE45";
+  const brandGreen = "#6DBE45"; 
 
   return (
     <>
-      {/* Utility Bar */}
-      <div style={{ backgroundColor: brandColor }} className="text-white py-2 small">
-        <div className="container d-flex justify-content-between align-items-center">
-          <span className="fw-medium">Performance-Driven SEO & Web Development</span>
+      {/* 1. UTILITY BAR */}
+      <div style={{ backgroundColor: brandGreen }} className="text-white py-2">
+        <div className="container-xxl d-flex justify-content-between align-items-center">
+          <span className="fw-bold text-sentencecase ls-1" style={{ fontSize: '0.8rem' }}>
+            Performance-Driven SEO & Web Engineering →
+          </span>
           <div className="d-flex gap-4">
-            <a href="tel:+254700000000" className="text-white text-decoration-none opacity-hover">
+            <a href="tel:+254700000000" className="text-white text-decoration-none opacity-hover fw-bold" style={{ fontSize: '0.85rem' }}>
               📞 +254 700 000 000
             </a>
-            <a href="mailto:info@unlinkedseo.co.ke" className="text-white text-decoration-none opacity-hover">
+            <a href="mailto:info@unlinkedseo.co.ke" className="text-white text-decoration-none opacity-hover fw-bold" style={{ fontSize: '0.85rem' }}>
               ✉ info@unlinkedseo.co.ke
             </a>
           </div>
         </div>
       </div>
 
-      {/* Main Navbar */}
-      <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top py-3">
-        <div className="container">
+      {/* 2. MAIN NAVBAR */}
+      <nav className="navbar navbar-expand-lg p-0 sticky-top bg-transparent">
+        <div className="container-xxl bg-white shadow-sm my-lg-3 p-0 border-bottom border-3 position-relative" style={{ borderBottomColor: brandGreen }}>
+          
+          {/* PARENT FLEX: align-items-stretch is the secret to the button filling the height */}
+          <div className="d-flex w-100 align-items-stretch">
 
-          {/* LOGO */}
-          <Link href="/" className="navbar-brand text-decoration-none">
-            <span className="d-inline-flex align-items-center gap-3">
-              <span className="logo-box">U</span>
-              <span className="logo-text">
-                <strong className="text-dark">Unlinked</strong>
-                <strong style={{ color: brandColor }}>SEO</strong>
-              </span>
-            </span>
-          </Link>
+            {/* LOGO */}
+            <div className="ps-4 d-flex align-items-center py-1 flex-shrink-0">
+              <Link href="/" className="navbar-brand text-decoration-none m-0 p-0">
+                <span className="d-inline-flex align-items-center gap-3">
+                  <img 
+                    src="/ulogo.png" 
+                    alt="Unlinked SEO Logo" 
+                    style={{ height: "65px", width: "auto", objectFit: "contain" }} 
+                  />
+                  <span className="logo-text" style={{ fontSize: '1.8rem', lineHeight: '1' }}>
+                    <strong className="text-dark">Unlinked</strong>
+                    <strong style={{ color: brandGreen }}>SEO</strong>
+                  </span>
+                </span>
+              </Link>
+            </div>
 
-          {/* Mobile Toggle */}
-          <button className="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
-            <span className="navbar-toggler-icon" />
-          </button>
-
-          {/* Nav Links */}
-          <div className="collapse navbar-collapse" id="mainNavbar">
-            <ul className="navbar-nav mx-auto gap-lg-4">
-
-              {/* SERVICES */}
-              <li className="nav-item dropdown mega-dropdown">
-                <a className="nav-link fw-semibold dropdown-toggle custom-nav-link text-decoration-none" role="button">
-                  Services
-                </a>
-                <div className="dropdown-menu mega-menu shadow-lg p-4">
-                  <div className="row">
-                    <div className="col-6">
-                      <h6 className="mega-title" style={{ color: brandColor }}>SEO Services</h6>
-                      <div className="d-flex flex-column gap-3">
-                        <Link href="/services/on-page-seo" className="mega-item">
-                          <i className="bi bi-pencil-square" /> On-Page SEO
-                        </Link>
-                        <Link href="/services/technical-seo" className="mega-item">
-                          <i className="bi bi-gear" /> Technical SEO
-                        </Link>
-                        <Link href="/services/link-building" className="mega-item">
-                          <i className="bi bi-link-45deg" /> Link Building
-                        </Link>
-                        <Link href="/services/seo-audit" className="mega-item">
-                          <i className="bi bi-search" /> SEO Audits
-                        </Link>
+            {/* NAV LINKS - Centered */}
+            <div className="collapse navbar-collapse" id="mainNavbar">
+              <ul className="navbar-nav mx-auto gap-lg-5 align-items-stretch">
+                {/* SERVICES */}
+                <li className="nav-item dropdown mega-dropdown d-flex align-items-center">
+                  <Link href="/services" className="nav-link fw-bold custom-nav-link d-flex align-items-center gap-1 py-4">
+                    Services <i className="bi bi-chevron-down dropdown-icon-mini" />
+                  </Link>
+                  <div className="dropdown-menu mega-menu shadow-lg p-4">
+                    <div className="row">
+                      <div className="col-6">
+                        <h6 className="mega-title" style={{ color: brandGreen }}>SEO Services</h6>
+                        <div className="d-flex flex-column gap-3">
+                          <Link href="/services" className="mega-item"><i className="bi bi-pencil-square" /> On-Page SEO</Link>
+                          <Link href="/services" className="mega-item"><i className="bi bi-gear" /> Technical SEO</Link>
+                          <Link href="/services" className="mega-item"><i className="bi bi-link-45deg" /> Link Building</Link>
+                          <Link href="/services" className="mega-item"><i className="bi bi-search" /> SEO Audits</Link>
+                        </div>
                       </div>
-                    </div>
-                    <div className="col-6 border-start">
-                      <h6 className="mega-title" style={{ color: brandColor }}>Web & Growth</h6>
-                      <div className="d-flex flex-column gap-3">
-                        <Link href="/services/web-development" className="mega-item">
-                          <i className="bi bi-code-slash" /> Web Development
-                        </Link>
-                        <Link href="/services/conversion-rate-optimization" className="mega-item">
-                          <i className="bi bi-graph-up-arrow" /> CRO
-                        </Link>
-                        <Link href="/services/managed-hosting" className="mega-item">
-                          <i className="bi bi-hdd-network" /> Managed Hosting
-                        </Link>
-                        <Link href="/services/ai-seo" className="mega-item">
-                          <i className="bi bi-robot" /> AI SEO Strategy
-                        </Link>
+                      <div className="col-6 border-start">
+                        <h6 className="mega-title" style={{ color: brandGreen }}>Web & Growth</h6>
+                        <div className="d-flex flex-column gap-3">
+                          <Link href="/services" className="mega-item"><i className="bi bi-code-slash" /> Web Development</Link>
+                          <Link href="/services" className="mega-item"><i className="bi bi-graph-up-arrow" /> CRO</Link>
+                          <Link href="/services" className="mega-item"><i className="bi bi-hdd-network" /> Managed Hosting</Link>
+                          <Link href="/services" className="mega-item"><i className="bi bi-robot" /> AI SEO Strategy</Link>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </li>
+                </li>
 
-              {/* WHO WE SERVE */}
-              <li className="nav-item dropdown mega-dropdown">
-                <a className="nav-link fw-semibold dropdown-toggle custom-nav-link text-decoration-none" role="button">
-                  Who We Serve
-                </a>
-                <div className="dropdown-menu mega-menu shadow-lg p-4">
-                  <div className="row">
-                    <div className="col-6">
-                      <h6 className="mega-title" style={{ color: brandColor }}>Industries</h6>
-                      <div className="d-flex flex-column gap-3">
-                        <Link href="/industries/saas" className="mega-item">
-                          <i className="bi bi-cloud" /> SaaS Companies
-                        </Link>
-                        <Link href="/industries/ecommerce" className="mega-item">
-                          <i className="bi bi-cart" /> E-commerce
-                        </Link>
-                        <Link href="/industries/ai" className="mega-item">
-                          <i className="bi bi-cpu" /> AI & Tech
-                        </Link>
-                        <Link href="/industries/finance" className="mega-item">
-                          <i className="bi bi-bank" /> Finance
-                        </Link>
+                {/* WHO WE SERVE */}
+                <li className="nav-item dropdown mega-dropdown d-flex align-items-center">
+                  <a className="nav-link fw-bold custom-nav-link d-flex align-items-center gap-1 py-4" role="button">
+                    Who We Serve <i className="bi bi-chevron-down dropdown-icon-mini" />
+                  </a>
+                  <div className="dropdown-menu mega-menu shadow-lg p-4">
+                    <div className="row">
+                      <div className="col-6">
+                        <h6 className="mega-title" style={{ color: brandGreen }}>Industries</h6>
+                        <div className="d-flex flex-column gap-3">
+                          <Link href="/industries/saas" className="mega-item"><i className="bi bi-cloud" /> SaaS Companies</Link>
+                          <Link href="/industries/ecommerce" className="mega-item"><i className="bi bi-cart" /> E-commerce</Link>
+                          <Link href="/industries/ai" className="mega-item"><i className="bi bi-cpu" /> AI & Tech</Link>
+                        </div>
                       </div>
-                    </div>
-                    <div className="col-6 border-start">
-                      <h6 className="mega-title" style={{ color: brandColor }}>Markets</h6>
-                      <div className="d-flex flex-column gap-3">
-                        <Link href="/markets/b2b" className="mega-item">
-                          <i className="bi bi-building" /> B2B Strategy
-                        </Link>
-                        <Link href="/markets/enterprise" className="mega-item">
-                          <i className="bi bi-diagram-3" /> Enterprise
-                        </Link>
-                        <Link href="/markets/local" className="mega-item">
-                          <i className="bi bi-geo-alt" /> Local Business
-                        </Link>
-                        <Link href="/platforms/wordpress" className="mega-item">
-                          <i className="bi bi-wordpress" /> Platforms
-                        </Link>
+                      <div className="col-6 border-start">
+                        <h6 className="mega-title" style={{ color: brandGreen }}>Scale</h6>
+                        <div className="d-flex flex-column gap-3">
+                          <Link href="/markets/b2b" className="mega-item"><i className="bi bi-building" /> B2B Strategy</Link>
+                          <Link href="/markets/enterprise" className="mega-item"><i className="bi bi-diagram-3" /> Enterprise</Link>
+                          <Link href="/platforms/wordpress" className="mega-item"><i className="bi bi-wordpress" /> Platforms</Link>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </li>
+                </li>
 
-              <li className="nav-item">
-                <Link className="nav-link fw-semibold custom-nav-link text-decoration-none" href="/blog">
-                  Blog
-                </Link>
-              </li>
-            </ul>
+                <li className="nav-item d-flex align-items-center">
+                  <Link className="nav-link fw-bold custom-nav-link py-4" href="/blog">
+                    Blog
+                  </Link>
+                </li>
+              </ul>
+            </div>
 
-            {/* CTA - Sharp Rectangular Button */}
-            <Link href="/get-a-quote" className="btn-rect">
-              GET A QUOTE
-            </Link>
+            {/* GET A QUOTE  */}
+            <div className="flex-shrink-0 d-flex align-items-stretch h-auto" style={{background: "#6DBE45"}}>
+              <button className="btn" type="button" color="#6DBE45">
+                <Link href="/get-a-quote" className= "btn btn-custom-green">
+                <h6 style={{color: 'white'}}> GET QUOTE</h6>
+
+                 </Link>
+              </button>
+            </div>
+
+            {/* Mobile Toggle */}
+            <button className="navbar-toggler border-0 d-lg-none me-3 align-self-center" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+              <span className="navbar-toggler-icon" />
+            </button>
+
           </div>
         </div>
       </nav>
 
       <style jsx>{`
+        .ls-1 { letter-spacing: 0.1rem; }
+        
         .logo-box {
-          width: 45px;
-          height: 45px;
-          background: #6DBE45;
-          color: #fff;
-          font-weight: 900;
-          font-size: 1.4rem;
-          border-radius: 2px;
-          display: grid;
-          place-items: center;
+          width: 45px; height: 45px;
+          background: ${brandGreen};
+          color: #fff; font-weight: 900; font-size: 1.4rem;
+          border-radius: 2px; display: grid; place-items: center;
         }
 
         .logo-text { font-size: 1.6rem; }
 
-        /* Button Styling - Ensuring no blue link/underline */
-        .btn-rect {
-          display: inline-block;
-          background-color: #6DBE45;
+        /* THE FIX: Forcing solid block and overriding default link colors */
+        .btn-rect-flush {
+          background-color: ${brandGreen} !important;
           color: white !important;
-          font-weight: 700;
-          padding: 12px 30px;
-          border-radius: 0px; 
+          font-weight: 800;
+          padding: 0 45px;
           text-decoration: none !important;
-          letter-spacing: 1px;
+          letter-spacing: 1.5px;
           font-size: 0.85rem;
-          border: 2px solid #6DBE45;
-          transition: all 0.2s ease-in-out;
-          text-align: center;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: background-color 0.2s ease;
+          border-radius: 0 !important;
+          height: 100%; /* Stretch to full height of parent */
+          min-height: 80px; /* Optional: adjust based on logo height */
+          white-space: nowrap;
+          border: none;
         }
 
-        .btn-rect:hover {
-          background-color: transparent;
-          color: #6DBE45 !important;
+        .btn-rect-flush:hover {
+          background-color: #169c46 !important;
         }
 
         .custom-nav-link {
-          text-decoration: none !important;
-          color: #333 !important;
+          color: #1A1A1A !important;
+          font-size: 0.95rem;
+          transition: color 0.2s ease;
         }
 
-        .custom-nav-link:hover {
-          color: #6DBE45 !important;
+        .dropdown-icon-mini {
+          font-size: 0.7rem;
+          transition: transform 0.2s ease;
         }
 
-        /* Mega Menu Layout */
+        .mega-dropdown:hover .dropdown-icon-mini {
+          transform: rotate(180deg);
+        }
+
         .mega-dropdown:hover .mega-menu { display: block; }
+
         .mega-menu {
-          width: 580px;
+          display: none;
+          width: 600px;
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 1050;
           border-radius: 0;
           border: none;
-          border-top: 4px solid #6DBE45;
+          border-top: 5px solid ${brandGreen};
           margin-top: 0;
+          background-color: #fff;
         }
 
-        .mega-title {
-          font-size: 0.72rem;
-          font-weight: 800;
-          text-transform: uppercase;
-          margin-bottom: 15px;
-          letter-spacing: 0.8px;
+        .mega-dropdown::after {
+          content: "";
+          position: absolute;
+          bottom: -20px;
+          left: 0;
+          width: 100%;
+          height: 20px;
         }
 
-        .mega-item {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          font-size: 0.95rem;
-          color: #444 !important;
-          text-decoration: none !important;
-          padding: 2px 0;
-          transition: transform 0.2s ease, color 0.2s ease;
+        .mega-title { font-size: 0.75rem; font-weight: 900; text-transform: uppercase; margin-bottom: 18px; }
+        .mega-item { 
+          display: flex; align-items: center; gap: 12px; font-size: 0.95rem; 
+          color: #333 !important; text-decoration: none !important; padding: 2px 0; transition: all 0.2s;
         }
-
-        .mega-item i {
-          color: #6DBE45;
-          font-size: 1.1rem;
-        }
-
-        .mega-item:hover {
-          color: #6DBE45 !important;
-          transform: translateX(5px);
-        }
-
-        .opacity-hover:hover { opacity: 0.8; }
+        .mega-item i { color: ${brandGreen}; font-size: 1.1rem; }
+        .mega-item:hover { color: ${brandGreen} !important; transform: translateX(8px); }
 
         @media (max-width: 991px) {
-          .mega-menu { width: 100%; border-top: none; }
-          .col-6 { width: 100%; border-start: none !important; margin-bottom: 25px; }
-          .btn-rect { display: block; text-align: center; margin-top: 15px; }
+          .container-xxl { margin: 0 !important; width: 100%; border-radius: 0; }
+          .btn-rect-flush { padding: 20px; min-height: 60px; height: auto; }
+          .mega-menu { width: 100%; position: static; transform: none; display: none; }
+          .mega-dropdown:hover .mega-menu { display: block; }
         }
       `}</style>
     </>

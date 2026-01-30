@@ -34,7 +34,7 @@ export default function CTA() {
                 <a href="/get-a-quote" className="btn-rect-primary">
                   GET MY FREE AUDIT
                 </a>
-                <a href="#services" className="btn-rect-dark">
+                <a href="/services" className="btn-rect-dark">
                   EXPLORE SERVICES
                 </a>
               </div>
