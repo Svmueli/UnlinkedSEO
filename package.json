@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@formspree/react": "^3.0.0",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.13.1",
     "cheerio": "^1.2.0",

@@ -44,12 +44,25 @@ export default function GetAQuotePage() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate API Call
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      console.log("Form Data Sent:", formData);
-      setIsSubmitted(true);
+      // REAL API CALL TO FORMSPREE
+      const response = await fetch("https://formspree.io/f/mvzbjker", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        const errorData = await response.json();
+        alert(errorData.error || "Something went wrong. Please try again.");
+      }
     } catch (error) {
+      alert("Network error. Please check your connection.");
       console.error("Submission failed", error);
     } finally {
       setIsSubmitting(false);
@@ -98,6 +111,9 @@ export default function GetAQuotePage() {
                 
                 {!isSubmitted ? (
                   <form onSubmit={handleSubmit}>
+                    {/* SPAM PROTECTION: HIDDEN HONEYPOT FIELD */}
+                    <input type="text" name="_gotcha" style={{ display: "none" }} />
+
                     <h3 className="fw-bold h5 mb-1">Book a Call</h3>
                     <p className="extra-small text-muted mb-4">Pick a time that works for you. No obligation.</p>
                     <div className="row g-3">
@@ -156,7 +172,7 @@ export default function GetAQuotePage() {
                           {isSubmitting ? (
                             <>
                               <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                              PROCESSING...
+                              SENDING...
                             </>
                           ) : "BOOK MY CALL NOW →"}
                         </button>
@@ -170,7 +186,7 @@ export default function GetAQuotePage() {
                     </div>
                     <h3 className="fw-bold h5">Consultation Requested!</h3>
                     <p className="extra-small text-muted mb-4">
-                      Thank you, {formData.firstName}. An SEO engineer will review <strong>{formData.website}</strong> and reach out to you within 24 hours.
+                      Thank you, {formData.firstName}. A SEO engineer will review <strong>{formData.website}</strong> and reach out to you within 24 hours.
                     </p>
                     <button 
                       onClick={() => setIsSubmitted(false)}

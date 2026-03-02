@@ -26,11 +26,14 @@ export default function Navbar() {
             Performance-Driven SEO & Web Engineering →
           </span>
           <div className="d-flex gap-4 d-none d-md-flex">
-            <a href="tel:+254700000000" className="text-white text-decoration-none opacity-hover fw-bold" style={{ fontSize: '0.85rem' }}>
-              📞 +254 700 000 000
+            <a href="tel:+447462210465" className="text-white text-decoration-none opacity-hover fw-bold" style={{ fontSize: '0.85rem' }}>
+              📞 +44 746 221 0465
             </a>
-            <a href="mailto:info@unlinkedseo.co.ke" className="text-white text-decoration-none opacity-hover fw-bold" style={{ fontSize: '0.85rem' }}>
-              ✉ info@unlinkedseo.co.ke
+            <a href="tel:+254721350635" className="text-white text-decoration-none opacity-hover fw-bold" style={{ fontSize: '0.85rem' }}>
+              📞 +254 721 350 635
+            </a>
+            <a href="mailto:info@unlinkedseo.com" className="text-white text-decoration-none opacity-hover fw-bold" style={{ fontSize: '0.85rem' }}>
+              ✉ info@unlinkedseo.com
             </a>
           </div>
         </div>
@@ -129,7 +132,7 @@ export default function Navbar() {
             </button>
         </div>
 
-        <div className="overlay-body d-flex flex-column h-100">
+        <div className="overlay-body d-flex flex-column flex-grow-1" style={{ position: 'relative', zIndex: 1 }}>
             {/* Main Menu Links arranged in a proper column */}
             <nav className="mobile-nav-list p-4 flex-grow-1 d-flex flex-column">
                 <Link href="/services" onClick={() => setIsMenuOpen(false)} className="mobile-link">
@@ -142,22 +145,28 @@ export default function Navbar() {
                     Blog <i className="bi bi-arrow-right text-white"></i>
                 </Link>
                 
-                <Link href="/get-a-quote" onClick={() => setIsMenuOpen(false)} className="mobile-cta-link mt-auto">
-                    BOOK A CALL <i className="bi bi-calendar-check-fill ms-2"></i>
-                </Link>
+                <div className="pt-5 mt-auto pb-4" style={{ position: 'relative', zIndex: 10 }}>
+                    <Link href="/get-a-quote" onClick={() => setIsMenuOpen(false)} className="mobile-cta-link d-flex">
+                        BOOK A CALL <i className="bi bi-calendar-check-fill ms-2"></i>
+                    </Link>
+                </div>
             </nav>
 
             {/* CONTACT INFO FOOTER */}
-            <div className="p-4 bg-white bg-opacity-10 border-top border-white border-opacity-25">
+            <div className="p-4 bg-white bg-opacity-10 border-top border-white border-opacity-25" style={{ position: 'relative', zIndex: 1 }}>
                 <h6 className="text-uppercase fw-bold mb-3 small text-white" style={{ letterSpacing: '1px' }}>Contact Us</h6>
                 <div className="d-flex flex-column gap-3">
-                    <a href="tel:+254700000000" className="text-white text-decoration-none d-flex align-items-center gap-3 fw-bold">
+                    <a href="tel:+447462210465" className="text-white text-decoration-none d-flex align-items-center gap-3 fw-bold">
                         <i className="bi bi-telephone-fill"></i>
-                        <span>+254 700 000 000</span>
+                        <span>+44 746 221 0465</span>
                     </a>
-                    <a href="mailto:info@unlinkedseo.co.ke" className="text-white text-decoration-none d-flex align-items-center gap-3 fw-bold">
+                    <a href="tel:+254721350635" className="text-white text-decoration-none d-flex align-items-center gap-3 fw-bold">
+                        <i className="bi bi-telephone-fill"></i>
+                        <span>+254 721 350 635</span>
+                    </a>
+                    <a href="mailto:info@unlinkedseo.com" className="text-white text-decoration-none d-flex align-items-center gap-3 fw-bold">
                         <i className="bi bi-envelope-fill"></i>
-                        <span>info@unlinkedseo.co.ke</span>
+                        <span>info@unlinkedseo.com</span>
                     </a>
                 </div>
                 <p className="mt-4 extra-small text-white opacity-75">Performance-Driven SEO & Web Engineering</p>
@@ -167,7 +176,7 @@ export default function Navbar() {
 
       {/* 4. WHATSAPP FLOATING BUTTON */}
       <a 
-        href="https://wa.me/254700000000?text=Hello%20Unlinked%20SEO,%20I'm%20interested%20in%20your%20services." 
+        href="https://wa.me/447462210465?text=Hello%20Unlinked%20SEO,%20I'm%20interested%20in%20your%20services." 
         className="whatsapp-float shadow-lg" 
         target="_blank" 
         rel="noopener noreferrer"
@@ -227,6 +236,9 @@ export default function Navbar() {
             padding: 16px 25px; background: white; color: ${brandGreen};
             text-decoration: none; font-weight: 800; border-radius: 4px;
             text-transform: uppercase; letter-spacing: 1px;
+            position: relative;
+            z-index: 20;
+            pointer-events: all;
         }
 
         /* WHATSAPP FLOAT STYLES */
