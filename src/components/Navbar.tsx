@@ -45,13 +45,13 @@ export default function Navbar() {
           
           <div className="d-flex w-100 align-items-stretch justify-content-between">
 
-            {/* LOGO SECTION - Updated to use logo.png only */}
-            <div className="ps-4 d-flex align-items-center py-2 flex-shrink-0">
+            {/* LOGO SECTION - Height reduced to 40px for a sleeker look */}
+            <div className="ps-4 d-flex align-items-center py-3 flex-shrink-0">
               <Link href="/" className="navbar-brand text-decoration-none m-0 p-0">
                   <img 
                     src="/logo.png" 
                     alt="Unlinked SEO Logo" 
-                    style={{ height: "55px", width: "auto", objectFit: "contain" }} 
+                    style={{ height: "40px", width: "auto", objectFit: "contain" }} 
                   />
               </Link>
             </div>
@@ -117,12 +117,11 @@ export default function Navbar() {
       {/* 3. MOBILE OVERLAY */}
       <div className={`mobile-overlay ${isMenuOpen ? 'active' : ''}`}>
         <div className="overlay-header d-flex justify-content-between align-items-center p-3 border-bottom border-white border-opacity-25">
-            {/* Updated Mobile Logo */}
             <Link href="/" onClick={() => setIsMenuOpen(false)}>
               <img 
                 src="/logo.png" 
                 alt="Unlinked SEO Logo" 
-                style={{ height: "45px", width: "auto", objectFit: "contain", filter: "brightness(0) invert(1)" }} 
+                style={{ height: "32px", width: "auto", objectFit: "contain", filter: "brightness(0) invert(1)" }} 
               />
             </Link>
             <button className="btn text-white fw-bold d-flex align-items-center gap-2 border-0" onClick={() => setIsMenuOpen(false)}>
@@ -182,7 +181,7 @@ export default function Navbar() {
       </a>
 
       <style jsx>{`
-        /* ... existing styles preserved ... */
+        /* Styles preserved as before */
         .ls-1 { letter-spacing: 0.1rem; }
         .extra-small { font-size: 0.75rem; }
 
