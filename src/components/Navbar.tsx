@@ -45,13 +45,13 @@ export default function Navbar() {
           
           <div className="d-flex w-100 align-items-stretch justify-content-between">
 
-            {/* LOGO SECTION - Height reduced to 40px for a sleeker look */}
-            <div className="ps-4 d-flex align-items-center py-3 flex-shrink-0">
+            {/* LOGO SECTION - Height reduced to 30px for a refined, professional look */}
+            <div className="ps-4 d-flex align-items-center py-2 flex-shrink-0">
               <Link href="/" className="navbar-brand text-decoration-none m-0 p-0">
                   <img 
                     src="/logo.png" 
                     alt="Unlinked SEO Logo" 
-                    style={{ height: "40px", width: "auto", objectFit: "contain" }} 
+                    style={{ height: "30px", width: "auto", objectFit: "contain" }} 
                   />
               </Link>
             </div>
@@ -121,7 +121,7 @@ export default function Navbar() {
               <img 
                 src="/logo.png" 
                 alt="Unlinked SEO Logo" 
-                style={{ height: "32px", width: "auto", objectFit: "contain", filter: "brightness(0) invert(1)" }} 
+                style={{ height: "25px", width: "auto", objectFit: "contain", filter: "brightness(0) invert(1)" }} 
               />
             </Link>
             <button className="btn text-white fw-bold d-flex align-items-center gap-2 border-0" onClick={() => setIsMenuOpen(false)}>
@@ -181,7 +181,7 @@ export default function Navbar() {
       </a>
 
       <style jsx>{`
-        /* Styles preserved as before */
+        /* Styles preserved */
         .ls-1 { letter-spacing: 0.1rem; }
         .extra-small { font-size: 0.75rem; }
 
