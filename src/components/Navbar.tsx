@@ -45,20 +45,14 @@ export default function Navbar() {
           
           <div className="d-flex w-100 align-items-stretch justify-content-between">
 
-            {/* LOGO SECTION */}
-            <div className="ps-4 d-flex align-items-center py-1 flex-shrink-0">
+            {/* LOGO SECTION - Updated to use logo.png only */}
+            <div className="ps-4 d-flex align-items-center py-2 flex-shrink-0">
               <Link href="/" className="navbar-brand text-decoration-none m-0 p-0">
-                <span className="d-inline-flex align-items-center gap-3">
                   <img 
-                    src="/ulogo.png" 
+                    src="/logo.png" 
                     alt="Unlinked SEO Logo" 
-                    style={{ height: "65px", width: "auto", objectFit: "contain" }} 
+                    style={{ height: "55px", width: "auto", objectFit: "contain" }} 
                   />
-                  <span className="logo-text d-none d-sm-inline" style={{ fontSize: '1.8rem', lineHeight: '1' }}>
-                    <strong className="text-dark">Unlinked</strong>
-                    <strong style={{ color: brandGreen }}>SEO</strong>
-                  </span>
-                </span>
               </Link>
             </div>
 
@@ -99,7 +93,7 @@ export default function Navbar() {
               </ul>
             </div>
 
-            {/* RIGHT SECTION: Book a Call (Desktop) & Menu Toggle (Mobile) */}
+            {/* RIGHT SECTION */}
             <div className="d-flex align-items-stretch">
               <div className="d-none d-lg-flex flex-shrink-0 align-items-stretch" style={{ background: brandGreen }}>
                   <Link href="/get-a-quote" className="btn d-flex align-items-center px-4 text-decoration-none">
@@ -107,7 +101,6 @@ export default function Navbar() {
                   </Link>
               </div>
 
-              {/* MOBILE TOGGLE - Flexed to the extreme right */}
               <button 
                 className="d-lg-none btn border-0 px-4 d-flex align-items-center gap-2 fw-bold flex-shrink-0" 
                 onClick={() => setIsMenuOpen(true)}
@@ -121,19 +114,23 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* 3. MOBILE OVERLAY (BRANDGREEN BACKGROUND) */}
+      {/* 3. MOBILE OVERLAY */}
       <div className={`mobile-overlay ${isMenuOpen ? 'active' : ''}`}>
         <div className="overlay-header d-flex justify-content-between align-items-center p-3 border-bottom border-white border-opacity-25">
-            <span className="logo-text text-white" style={{ fontSize: '1.4rem' }}>
-                <strong>Unlinked</strong><strong>SEO</strong>
-            </span>
+            {/* Updated Mobile Logo */}
+            <Link href="/" onClick={() => setIsMenuOpen(false)}>
+              <img 
+                src="/logo.png" 
+                alt="Unlinked SEO Logo" 
+                style={{ height: "45px", width: "auto", objectFit: "contain", filter: "brightness(0) invert(1)" }} 
+              />
+            </Link>
             <button className="btn text-white fw-bold d-flex align-items-center gap-2 border-0" onClick={() => setIsMenuOpen(false)}>
                 CLOSE <i className="bi bi-x-lg text-white"></i>
             </button>
         </div>
 
         <div className="overlay-body d-flex flex-column flex-grow-1" style={{ position: 'relative', zIndex: 1 }}>
-            {/* Main Menu Links arranged in a proper column */}
             <nav className="mobile-nav-list p-4 flex-grow-1 d-flex flex-column">
                 <Link href="/services" onClick={() => setIsMenuOpen(false)} className="mobile-link">
                     Services <i className="bi bi-arrow-right text-white"></i>
@@ -152,7 +149,6 @@ export default function Navbar() {
                 </div>
             </nav>
 
-            {/* CONTACT INFO FOOTER */}
             <div className="p-4 bg-white bg-opacity-10 border-top border-white border-opacity-25" style={{ position: 'relative', zIndex: 1 }}>
                 <h6 className="text-uppercase fw-bold mb-3 small text-white" style={{ letterSpacing: '1px' }}>Contact Us</h6>
                 <div className="d-flex flex-column gap-3">
@@ -186,8 +182,8 @@ export default function Navbar() {
       </a>
 
       <style jsx>{`
+        /* ... existing styles preserved ... */
         .ls-1 { letter-spacing: 0.1rem; }
-        .logo-text { font-size: 1.6rem; }
         .extra-small { font-size: 0.75rem; }
 
         .custom-nav-link {
@@ -214,7 +210,6 @@ export default function Navbar() {
         .mega-item i { color: ${brandGreen}; font-size: 1.1rem; }
         .mega-item:hover { color: ${brandGreen} !important; transform: translateX(8px); }
 
-        /* MOBILE OVERLAY STYLES */
         .mobile-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: ${brandGreen}; z-index: 9999; transform: translateX(100%);
@@ -241,7 +236,6 @@ export default function Navbar() {
             pointer-events: all;
         }
 
-        /* WHATSAPP FLOAT STYLES */
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
@@ -258,10 +252,7 @@ export default function Navbar() {
             transition: all 0.3s ease;
         }
 
-        .whatsapp-float i {
-            font-size: 1.8rem;
-        }
-
+        .whatsapp-float i { font-size: 1.8rem; }
         .whatsapp-label {
             max-width: 0;
             overflow: hidden;
