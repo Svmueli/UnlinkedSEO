@@ -36,9 +36,6 @@ export default function Services() {
       
       {/* VISIBLE BACKGROUND ELEMENTS */}
       <div className="bg-elements">
-        {/* Large Geometric Grid */}
-        <div className="heavy-grid"></div>
-        
         {/* Floating SEO/Code Symbols */}
         <div className="floating-symbol sym-1">{"{ }"}</div>
         <div className="floating-symbol sym-2">#SEO</div>
@@ -115,17 +112,6 @@ export default function Services() {
         .h-line {
           width: 80px;
           height: 4px;
-        }
-
-        /* HEAVY GRID */
-        .heavy-grid {
-          position: absolute;
-          inset: 0;
-          background-image: 
-            linear-gradient(to right, #eee 1px, transparent 1px),
-            linear-gradient(to bottom, #eee 1px, transparent 1px);
-          background-size: 60px 60px;
-          opacity: 0.6;
         }
 
         /* FLOATING SYMBOLS */
