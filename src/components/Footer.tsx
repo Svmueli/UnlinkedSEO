@@ -78,8 +78,19 @@ export default function Footer() {
 
               {/* Contact Column */}
               <div className="col-md-4 col-sm-12">
-                <h6 className="footer-title">Our Contacts</h6>
+                <h6 className="footer-title">Contact</h6>
                 <ul className="list-unstyled p-0 m-0">
+                  {/* Primary Email */}
+                  <li className="mb-4">
+                    <span className="d-block small text-dark fw-bold text-uppercase opacity-75 mb-1" style={{ fontSize: "0.7rem", letterSpacing: "0.5px" }}>
+                      Email Us
+                    </span>
+                    <a href="mailto:info@unlinkedseo.com" className="footer-link fw-semibold">
+                      ✉ info@unlinkedseo.com
+                    </a>
+                  </li>
+
+                  {/* Phone Numbers */}
                   {[
                     { country: "United Kingdom", phone: "+44 746 221 0465" },
                     { country: "Kenya", phone: "+254 721 350 635" },

@@ -26,9 +26,7 @@ export default function Navbar() {
             Performance-Driven SEO & Web Engineering →
           </span>
           <div className="d-flex gap-4 d-none d-md-flex">
-            <a href="mailto:info@unlinkedseo.com" className="text-white text-decoration-none opacity-hover fw-bold" style={{ fontSize: '0.85rem' }}>
-              ✉ info@unlinkedseo.com
-            </a>
+            
           </div>
         </div>
       </div>
