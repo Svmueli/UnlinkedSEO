@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="row gy-5 align-items-start">
 
           {/* Brand & Mission */}
-          <div className="col-lg-5">
+          <div className="col-lg-4">
             {/* Removed underline and default blue from brand link */}
             <Link href="/" className="text-decoration-none border-0 p-0 shadow-none">
               <h4 className="fw-black text-white mb-3 m-0" style={{ textDecoration: 'none' }}>
@@ -19,7 +19,7 @@ export default function Footer() {
               </h4>
             </Link>
 
-            <p className="text-white opacity-90 small mb-4 mt-3 col-lg-10 lh-lg">
+            <p className="text-white opacity-90 small mb-4 mt-3 col-lg-11 lh-lg">
               We engineer high-performance search systems. By combining technical SEO 
               excellence with AI-driven intelligence, we help brands bypass the 
               noise and own their market share.
@@ -40,11 +40,11 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links Group */}
-          <div className="col-lg-7">
+          {/* Links & Contact Group */}
+          <div className="col-lg-8">
             <div className="row">
               {/* Expertise Column */}
-              <div className="col-md-6 col-lg-6 mb-4 mb-md-0">
+              <div className="col-md-4 col-sm-6 mb-4 mb-md-0">
                 <h6 className="footer-title">Expertise</h6>
                 <ul className="list-unstyled p-0 m-0">
                   {["Technical SEO", "AI Strategy", "Link Building", "Web Development"].map((item) => (
@@ -58,7 +58,7 @@ export default function Footer() {
               </div>
 
               {/* Company Column */}
-              <div className="col-md-6 col-lg-6">
+              <div className="col-md-4 col-sm-6 mb-4 mb-md-0">
                 <h6 className="footer-title">Company</h6>
                 <ul className="list-unstyled p-0 m-0">
                   {[
@@ -71,6 +71,27 @@ export default function Footer() {
                       <Link href={link.href} className="footer-link">
                         {link.name}
                       </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Contact Column */}
+              <div className="col-md-4 col-sm-12">
+                <h6 className="footer-title">Our Contacts</h6>
+                <ul className="list-unstyled p-0 m-0">
+                  {[
+                    { country: "United Kingdom", phone: "+44 746 221 0465" },
+                    { country: "Kenya", phone: "+254 721 350 635" },
+                    { country: "United States", phone: "+1 (913) 603-3368" }
+                  ].map((contact) => (
+                    <li key={contact.country} className="mb-3">
+                      <span className="d-block small text-dark fw-bold text-uppercase opacity-75" style={{ fontSize: "0.7rem", letterSpacing: "0.5px" }}>
+                        {contact.country}
+                      </span>
+                      <a href={`tel:${contact.phone.replace(/[^+\d]/g, "")}`} className="footer-link">
+                        {contact.phone}
+                      </a>
                     </li>
                   ))}
                 </ul>

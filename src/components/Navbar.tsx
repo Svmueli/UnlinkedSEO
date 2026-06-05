@@ -26,12 +26,6 @@ export default function Navbar() {
             Performance-Driven SEO & Web Engineering →
           </span>
           <div className="d-flex gap-4 d-none d-md-flex">
-            <a href="tel:+447462210465" className="text-white text-decoration-none opacity-hover fw-bold" style={{ fontSize: '0.85rem' }}>
-              📞 +44 746 221 0465
-            </a>
-            <a href="tel:+254721350635" className="text-white text-decoration-none opacity-hover fw-bold" style={{ fontSize: '0.85rem' }}>
-              📞 +254 721 350 635
-            </a>
             <a href="mailto:info@unlinkedseo.com" className="text-white text-decoration-none opacity-hover fw-bold" style={{ fontSize: '0.85rem' }}>
               ✉ info@unlinkedseo.com
             </a>
